@@ -1,0 +1,7 @@
+{
+  "name": "Coffee Stain2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
