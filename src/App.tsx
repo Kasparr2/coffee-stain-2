@@ -1,8 +1,9 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonContent, IonImg, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
-import Page from './pages/Page';
+
+//import Page from './pages/Page';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,8 +23,16 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Dashboard from './pages/dashboard';
+import Coffee from './pages/coffee';
+import Favorites from './pages/favorites';
+import Cart from './pages/cart';
+import Settings from './pages/settings';
+import Blackcoffee from './pages/blackcoffee';
 
 setupIonicReact();
+
+//const background = new URL("../images../beans.jpg", import.meta.url)
 
 const App: React.FC = () => {
   return (
@@ -33,16 +42,19 @@ const App: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/page/Inbox" />
+              <Redirect to="/page/dashboard" />
             </Route>
-            <Route path="/page/:name" exact={true}>
-              <Page />
-            </Route>
+            <Route path="/page/Dashboard" component={Dashboard} />
+            <Route path="/page/Coffee" component={Coffee} />
+            <Route path="/page/Favorites" component={Favorites} />
+            <Route path="/page/Cart" component={Cart} />
+            <Route path="/page/Settings" component={Settings} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>
   );
 };
+
 
 export default App;
